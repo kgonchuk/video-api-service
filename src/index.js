@@ -7,7 +7,7 @@
     
 }
 // console.log(inputEl)
-import renderGallery from "./craetmarkup"
+import { renderGallery } from "./craetmarkup"
 import { Notify } from "notiflix";
 import { fetchGalleryImg } from "./api-service";
 
