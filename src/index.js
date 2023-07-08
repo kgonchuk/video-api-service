@@ -7,7 +7,7 @@
     
 }
 // console.log(inputEl)
-import renderMarkupGallery from "./craetmarkup"
+import renderGallery from "./craetmarkup"
 import { Notify } from "notiflix";
 import { fetchGalleryImg } from "./api-service";
 
@@ -26,12 +26,12 @@ refs.searchForm.addEventListener('submit', onSearchFormClick)
 async function onSearchFormClick(evt){
   evt.preventDefault();
 refs.searchForm.addEventListener('submit', onSearchFormClick)
-  const name = refs.searchForm.elements.searchQuery.value.trim();
- if(name === ''){
+  const searchQuery = refs.searchForm.elements.searchQuery.value.trim();
+ if(searchQuery === ''){
 Notify.failure(`Please, fill all filds!`)
  }
  try{
-  const galleryVideo = await fetchGalleryImg(name, page)
+  const galleryVideo = await fetchGalleryImg(searchQuery, page)
   const totalPage = galleryVideo.data.totalHits;
   console.log(totalPage)
   if(galleryVideo.data.hits.length === 0){
@@ -43,7 +43,7 @@ Notify.success(`Hooray!We found ${totalPage} videos`)
 else if(totalPage > 40){
   Notify.success(`Hooray!We found ${totalPage} videos`)
 }
-renderMarkupGallery(galleryVideo.data.hits);
+renderGallery(galleryVideo.data.hits);
  }
  catch(error){
   console.log(error)

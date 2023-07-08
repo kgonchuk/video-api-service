@@ -1,5 +1,5 @@
 import axios from "axios";
-import { renderMarkupGallery } from "./craetmarkup";
+// import { createMarkup } from "./craetmarkup";
 
 const BASE_URL = 'https://pixabay.com/api/videos/';
 const API_KEY = '38060997-efaa6414bf9eafc84e286c70f';
@@ -11,7 +11,7 @@ export async function fetchGalleryImg(name, page){
           );
 
           console.log(response.data.hits)
-          renderMarkupGallery(response.data.hits);
+         
           return response;
       
     }
